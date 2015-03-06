@@ -1,0 +1,1110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>南京国际博览中心</title>
+<link href="css/css.css" rel="stylesheet" type="text/css">
+<link href="css/tpbk-activity.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+ul,li{margin:0;padding:0}
+#scrollDiv{width:189px;height:360px;overflow:hidden}
+#scrollDiv li{height:120px;padding-left:10px;}
+
+</style>
+<SCRIPT language=Javascript src="js/js.js"></SCRIPT>
+<SCRIPT language=Javascript src="js/jquery.js"></SCRIPT>
+<script type="text/javascript">
+//滚动插件
+(function($){
+$.fn.extend({
+        Scroll:function(opt,callback){
+                //参数初始化
+                if(!opt) var opt={};
+                var _this=this.eq(0).find("ul:first");
+                var    lineH=_this.find("li:first").height(), //获取行高
+                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                        speed=opt.speed?parseInt(opt.speed,10):800, //卷动速度，数值越大，速度越慢（毫秒）
+                        timer=opt.timer?parseInt(opt.timer,10):5000; //滚动的时间间隔（毫秒）
+                if(line==0) line=1;
+                var upHeight=0-line*lineH;
+                //滚动函数
+                scrollUp=function(){
+                        _this.animate({
+                                marginTop:upHeight
+                        },speed,function(){
+                                for(i=1;i<=line;i++){
+                                        _this.find("li:first").appendTo(_this);
+                                }
+                                _this.css({marginTop:0});
+                        });
+                }
+                //鼠标事件绑定
+                _this.hover(function(){
+                        clearInterval(timerID);
+                },function(){
+                        timerID=setInterval("scrollUp()",timer);
+                }).mouseout();
+        }        
+})
+})(jQuery);
+
+$(document).ready(function(){
+        $("#scrollDiv").Scroll({line:3,speed:800,timer:5000});
+});
+
+
+var myTimerID=null;
+var myTimeroutID=null;
+var myScrollLine=4;
+
+window.onload=function(){
+	var tables=scrollNewsDiv.all.tags("TABLE");
+	var tmplen=tables.length;
+	for(var i=0;i<tmplen;i++){
+		scrollNewsDiv.appendChild(tables[i].cloneNode(true));
+	}
+	myTimeroutID=setTimeout("myScrollStart()",3000);
+}
+
+function myScrollStart(){
+	myTimerID=setInterval("myScrollUp()",200);
+	myTimeroutID=setTimeout("myScrollStart()",5000);
+}
+
+function myScrollStop(){
+		clearInterval(myTimerID);
+		clearTimeout(myTimeroutID);
+}
+
+
+function myScrollUp(){
+		scrollNewsDiv.scrollTop+=myScrollLine*2;
+		if(scrollNewsDiv.scrollTop==46*myScrollLine){
+			var tables=scrollNewsDiv.all.tags("TABLE");
+			for(var i=0;i<myScrollLine;i++){
+				scrollNewsDiv.appendChild(scrollNewsDiv.removeChild(tables[0]));
+			}
+			scrollNewsDiv.scrollTop=0;
+			clearInterval(myTimerID);
+		}
+}
+
+
+</script>
+</head>
+<body>
+<link href="css/css.css" rel="stylesheet" type="text/css">
+<link href="css/tpbk-activity.css" rel="stylesheet" type="text/css">
+<SCRIPT src="js/jquery.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="js/jfastmenu.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+	$(document).ready(function(){
+	$.jFastMenu("#topmenu");
+	});
+</SCRIPT>
+<table width="1004" border="0" cellpadding="0" cellspacing="0" align="center">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="1004" height="109" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/top_bg_01.jpg">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="11" rowspan="2" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+        <td width="228" rowspan="2" valign="middle"><img src="images/logo.jpg" width="228" height="80"></td>
+        <td width="731" height="58" valign="middle" align="right"><img src="images/top_icon_01.jpg" width="11" height="11" align="texttop">&nbsp;&nbsp;<a href="index_en.asp">English</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/top_icon_02.jpg" width="11" height="11" align="texttop">&nbsp;&nbsp;<a href="http://mail.nanjingexpo.com.cn">邮箱登陆</a>&nbsp;&nbsp;&nbsp;&nbsp;<A href="http://www.xici.net/b1115687/board.asp" target="_blank">公司论坛</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="51" valign="top"><DIV id=topmenu>
+<UL style="WIDTH: 727px; HEIGHT: 31px">
+  <LI><A href="index.asp"><IMG height=34 width=46 
+  src="images/b1.jpg"></A></LI>
+  <LI><A href="News.asp?BigClassName=公司新闻"><IMG height=34 width=86 
+  src="images/b2.jpg"></A> 
+  <UL>
+    <LI><A href="News.asp?BigClassName=公司新闻">- 公司新闻</A> </LI>
+    <LI><A href="News.asp?BigClassName=展会快讯">- 展会快讯</A> </LI>
+    <LI><A href="News.asp?BigClassName=其他新闻">- 其他新闻</A> </LI>
+	<LI><A href="jingcai1.asp?BigClassName=2013">- 精彩回顾</A> </LI></UL></LI>
+  <LI><A href="about.asp"><IMG height=34 width=88 
+  src="images/b3.jpg"></A> 
+  <UL>
+    <LI><A href="about.asp">- 展馆总图</A> </LI>
+    <LI><A href="qyys.asp">- 工程规划</A> </LI>
+    <LI><A href="yqgc.asp">- 室内展馆</A> </LI>
+	<LI><A href="eqgc.asp">- 室外展场</A> </LI>
+	<LI><A href="hyzx.asp">- 停车交通图</A> </LI>
+	<LI><A href="zgcs.asp">- 技术参数</A> </LI></UL></LI>
+  <LI><A href="Xinxi.asp?BigClassName=近期展览"><IMG height=34 width=87 
+  src="images/b4.jpg"></A>
+  <UL>
+     <LI><A href="xinxi_1.asp?BigClassName=展览计划&SmallClassName=2014">- 展览计划</A> </LI>
+<LI><A href="xinxi.asp?BigClassName=近期展览">- 近期展览</A> </LI></UL></LI>
+  <LI><A href="service.asp"><IMG height=34 width=85 
+  src="images/b5.jpg"></A> 
+  <UL>
+    <LI><A href="service.asp">- 服务项目</A> </LI>
+    <LI><A href="service_2.asp">- 工程服务</A> </LI>
+    <LI><A href="service_3.asp">- 特装服务</A> </LI>
+    <LI><A href="shenqing.asp">- 物品租赁</A> </LI>
+    <LI><A href="service_4.asp">- 广告服务</A> </LI>
+	<LI><A href="service_5.asp">- 展品运输</A> </LI>
+	<LI><A href="service_6.asp">- 商务服务</A> </LI>
+	<LI><A href="service_7.asp">- 工程登陆</A> </LI></UL></LI>
+  <LI><A href="zhinan.asp"><IMG height=34 
+  src="images/b6.jpg" width=87></A>
+  <UL>
+    <LI><A href="zhinan.asp">- 相关法规</A> </LI>
+    <LI><A href="zhinan_2.asp">- 办展须知</A> </LI>
+    <LI><A href="zhinan_3.asp">- 安保事项</A> </LI>
+    <LI><A href="zhinan_4.asp">- 物业管理</A> </LI>
+    <LI><A href="zhinan_5.asp">- 资料下载</A> </LI></UL></LI>
+  <LI><A href="bianli.asp"><IMG height=34 
+  src="images/b7.jpg" width=87></A>
+  <UL>
+    <LI><A href="bianli.asp">- 交通指南</A> </LI>
+    <LI><A href="http://www.weather.com.cn/html/weather/101190101.shtml" target="_blank">- 天气预报</A> </LI>
+    <LI><A href="bianli_3.asp">- 酒店住宿</A> </LI>
+    <LI><A href="bianli_4.asp">- 餐饮服务</A> </LI>
+    <LI><A href="bianli_5.asp">- 景点介绍</A> </LI>
+	<LI><A href="bianli_6.asp">- 医疗机构</A> </LI>
+	<LI><A href="bianli_7.asp">- 附近购物</A> </LI></UL></LI>
+  <LI><A href="center.asp"><IMG height=34 
+  src="images/b8.jpg" width=86></A></LI>
+  <LI><A href="guanyu.asp"><IMG height=34 
+  src="images/b9.jpg" width=75></A>
+  <UL>
+    <LI><A href="guanyu.asp">- 企业文化</A> </LI>
+    <LI><A href="guanyu_2.asp">- 人事招聘</A> </LI>
+    <LI><A href="guanyu_3.asp">- 大事记</A> </LI></UL></LI></UL></DIV></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="200"><div id="topDiv" style=" z-index:-1; position:absolute;width:1004;height:200;top:109px;">
+
+<table width="1004" border="0" cellpadding="0" cellspacing="0" align="center">
+            <!--DWLayoutTable-->
+            <tr>
+              <td width="1004" height="200" valign="bottom" align="center" bgcolor="#678FC2"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1004" height="200">
+        <param name="movie" value="images/banner.swf" />
+        <param name="quality" value="high" />
+		<param name="Wmode" value="transparent">
+        <embed src="images/banner.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1004" height="200"></embed>
+    </object></td>
+              </tr>
+          </table>
+
+</div></td>
+  </tr>
+</table>
+
+<table width="1004" border="0" cellpadding="0" cellspacing="0" align="center">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="276" height="651" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="276" height="186" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="269" height="186" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="269" height="180" valign="top" style="padding-top:5px"><div id="lantern_slide">
+<TABLE class="ge" id="ge" cellSpacing="0" cellPadding="0">
+  <TBODY>
+  <TR>
+    <TD class="pic" id="bimg">
+
+      <div class="dis" name="f">
+	  <a href="news_content.asp?id=550"><IMG src="UploadFiles/20151414114381.jpg" width="268" height="150"></a></div>
+
+      <div class="undis" name="f">
+	  <a href="news_content.asp?id=549"><IMG src="UploadFiles/20141216104156551.jpg" width="268" height="150"></a></div>
+
+      <div class="undis" name="f">
+	  <a href="news_content.asp?id=548"><IMG src="UploadFiles/201412317532895.jpg" width="268" height="150"></a></div>
+
+      <div class="undis" name="f">
+	  <a href="news_content.asp?id=547"><IMG src="UploadFiles/2014121112753595.jpg" width="268" height="150"></a></div>
+
+      <TABLE id="font_hd" cellSpacing="0" cellPadding="0">
+        <TBODY>
+        <TR>
+          <TD class="lkff" id="info">
+
+            <div class="dis" name="f">
+			<a href="news_content.asp?id=550">会展公司党支部召开专题组织生活会</a></div>
+
+            <div class="undis" name="f">
+			<a href="news_content.asp?id=549">2015康宝莱(中国)新春特训会在南京国际博览中心开幕</a></div>
+
+            <div class="undis" name="f">
+			<a href="news_content.asp?id=548">香港时尚购物展在南京国际博览中心盛大落幕</a></div>
+
+            <div class="undis" name="f">
+			<a href="news_content.asp?id=547">让市民更满意&nbsp;&nbsp;让城市更文明</a></div>
+
+
+</TD>
+          <TD id="simg">
+            <div class="" onClick="play(x[0],0)" name="f">1</div>
+            <div class=f1 onClick="play(x[1],1)" name="f">2</div>
+            <div class=f1 onClick="play(x[2],2)" name="f">3</div>
+            <div class=f1 onClick="play(x[3],3)" name="f">4</div></TD></TR></TBODY></TABLE>
+<SCRIPT src="js/picshow.js" type=text/javascript></SCRIPT></TD></TR></TBODY></TABLE></div></td>
+                </tr>
+            </table></td>
+              <td width="7">&nbsp;</td>
+          </tr>
+          </table></td>
+        </tr>
+      <tr>
+        <td height="29" valign="top" align="left"><img src="images/index4/index_08.jpg" width="269" height="29"></td>
+        </tr>
+      <tr>
+        <td height="160" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_09.jpg">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="90" height="80" valign="middle" align="right"><a href="zhinan.asp"><img src="images/news/index_02.jpg" width="75" height="70" border="0"></a></td>
+            <td width="90" valign="middle" align="center"><a href="zhinan_2.asp"><img src="images/news/index_03.jpg" width="75" height="70" border="0"></a></td>
+            <td width="96" valign="middle" align="left"><a href="zhinan_3.asp"><img src="images/news/index_04.jpg" width="75" height="70" border="0"></a></td>
+          </tr>
+          <tr>
+            <td height="80" valign="middle" align="right"><a href="zhinan_4.asp"><img src="images/news/index_05.jpg" width="75" height="70" border="0"></a></td>
+            <td  valign="middle" align="center"><a href="zhinan_5.asp"><img src="images/news/index_06.jpg" width="75" height="70" border="0"></a></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="32" valign="top" align="left"><a href="http://www.weather.com.cn/html/weather/101190101.shtml" target="_blank"><img src="images/index4/index_10.jpg" width="269" height="32" border="0"></a></td>
+        </tr>
+      <tr>
+        <td height="239" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_11.jpg">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="269" height="125" valign="bottom" align="center"><iframe src="http://m.weather.com.cn/m/pn12/weather.htm?id=101190101T " width="240" height="110" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" allowtransparency=true></iframe></td>
+              <td width="7">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="114" colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="269" height="57" valign="middle" align="center"><a href="bianli.asp"><img src="images/news/index_10.jpg" width="245" height="52" border="0"></a></td>
+          <td width="7">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="57" valign="middle" align="center"><img src="images/news/index_11.jpg" width="245" height="48"></td>
+          <td>&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td height="5"></td>
+      </tr>
+    </table></td>
+    <td width="728" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="728" height="223" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="360" height="223" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="360" height="35" valign="bottom" align="right"><a href="new.asp"><img src="images/index4/index_01.jpg" width="360" height="30"></a></td>
+                    </tr>
+              <tr>
+                <td height="188" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_03.jpg">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="360" height="6"></td>
+                  </tr>
+                  <tr>
+                    <td height="182" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=550" class="index_new">会展公司党支部召开专题组织生活会</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=549" class="index_new">2015康宝莱(中国)新春特训会在南京国际博览中心开幕</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=548" class="index_new">香港时尚购物展在南京国际博览中心盛大落幕</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=547" class="index_new">让市民更满意&nbsp;&nbsp;让城市更文明</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=546" class="index_new">2014南京国际面辅料及纱线展览会在南京国际博览中心落幕</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=545" class="index_new">江苏省2015届本科毕业生公益供需洽谈会在南京国际博览中</a></td>
+                    </tr>
+
+                      <tr>
+                        <td width="360" height="26" valign="middle">&nbsp;&nbsp;<a href="News_content.asp?id=544" class="index_new">2014江苏国际绿色建筑展在南京国际博览中心圆满闭幕</a></td>
+                    </tr>
+
+                    </table></td>
+                  </tr>
+                </table>
+                </td>
+              </tr>
+              </table></td>
+                <td width="7">&nbsp;</td>
+                <td width="361" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <!--DWLayoutTable-->
+                    <tr>
+                      <td width="361" height="35" valign="bottom" align="right"><a href="xinxi.asp?BigClassName=近期展览"><img src="images/index4/index_02.jpg" width="361" height="30"></a></td>
+                    </tr>
+                    <tr>
+                      <td height="188" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_14.jpg">
+                        <!--DWLayoutTable-->
+                        <tr>
+                          <td width="361" height="5"></td>
+                        </tr>
+                        <tr>
+                          <td height="183" valign="top">
+
+
+						  <div id="scrollNewsDiv" style="width:361px;height:184px;overflow:hidden" onMouseOver="myScrollStop()" onMouseOut="myScrollStart()">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=396" class="index_new1 ybfont">南京春季家装主材博览会</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=396" class="index_new ybfont">展览日期：2015-3-7 - 2015-3-9</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=396" class="index_new ybfont">展览场馆：南京国际博览中心1、2号厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=362" class="index_new1 ybfont">南京C.E迎新年动漫展会</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=362" class="index_new ybfont">展览日期：2015-1-1 - 2015-1-1</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=362" class="index_new ybfont">展览场馆：南京国际博览中心AB登录厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=361" class="index_new1 ybfont">康宝莱活动</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=361" class="index_new ybfont">展览日期：2014-12-11 - 2014-12-11</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=361" class="index_new ybfont">展览场馆：南京国际博览中心A厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=360" class="index_new1 ybfont">2014“香港时尚购物展&#8226;南京”</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=360" class="index_new ybfont">展览日期：2014-11-28 - 2014-12-2</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=360" class="index_new ybfont">展览场馆：南京国际博览中心A、B厅及AB登录厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=359" class="index_new1 ybfont">2014南京国际面辅料纱线、缝制设备、纺织品印花工业展览会</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=359" class="index_new ybfont">展览日期：2014-11-27 - 2014-11-29</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=359" class="index_new ybfont">展览场馆：南京国际博览中心C厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=358" class="index_new1 ybfont">2014年江苏省暨南京市2015届高校毕业生供需洽谈会</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=358" class="index_new ybfont">展览日期：2014-11-20 - 2014-11-22</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=358" class="index_new ybfont">展览场馆：南京国际博览中心A、B、C厅及AB登陆厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=357" class="index_new1 ybfont">孩子王2014年秋季文化艺术节</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=357" class="index_new ybfont">展览日期：2014-11-15 - 2014-11-16</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=357" class="index_new ybfont">展览场馆：南京国际博览中心A厅</a></td>
+					  </tr>
+                    </table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                     <tr>
+                              <td colspan="2" height="23" valign="bottom" style="padding-left:20px;"><a href="Xinxi_content.asp?id=356" class="index_new1 ybfont">2014江苏国际绿色建筑展览会</a></td>
+                    </tr>
+					<tr>
+    						<td width="180" height="23" valign="top" style="padding-left:20px"><a href="Xinxi_content.asp?id=356" class="index_new ybfont">展览日期：2014-11-5 - 2014-11-7</a></td>
+    						<td width="181" valign="top"><a href="Xinxi_content.asp?id=356" class="index_new ybfont">展览场馆：南京国际博览中心A厅</a></td>
+					  </tr>
+                    </table>
+
+						  </div>
+						  
+
+
+						  </td>
+                        </tr>
+                        
+                      </table>
+                      </td>
+                    </tr>
+                    
+                    
+                </table></td>
+              </tr>
+          
+        </table></td>
+        </tr>
+      <tr>
+        <td height="423" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="512" height="423" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_06.jpg">
+              <!--DWLayoutTable-->
+              <tr>
+                <td width="512" height="35" valign="bottom" align="left"><img src="images/index4/index_05.jpg" width="507" height="30"></td>
+                    </tr>
+              <tr>
+                <td height="154" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+                  <tr>
+                    <td width="512" height="41" valign="middle" align="center"><a href="http://home.house365.com/html/2014/12/26/024798718.html" target="_blank"><div class="newzhanhui">南京春季家装主材博览会</div></a></td>
+                          </tr>
+                  <tr>
+                    <td height="113" valign="middle" class="ybfont" style="padding-left:20px">展览名称：南京春季家装主材博览会<br>展会时间：3月7日-3月9日<br>展会地点：南京国际博览中心1、2号厅<br>主办单位：南京装饰材料商贸协会</td>
+                      </tr>
+
+                  </table></td>
+                    </tr>
+              <tr>
+                <td height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="16" height="59" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                        <td width="480" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <!--DWLayoutTable-->
+                          <tr>
+                            <td width="512" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                              <!--DWLayoutTable-->
+                              
+                              
+                              
+                              
+                              
+                                
+                              
+                              
+                              
+                              
+                              <tr>
+                                <td width="512" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                  <!--DWLayoutTable-->
+                                  
+                                  <tr>
+                                    
+                                    <td width="512" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/bg_14.gif">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="59" valign="middle" align="center" bgcolor="#CCCCCC"><a href="http://www.njzscl.com/" target="_blank"><IMG SRC="UploadFiles/2014121611721751.jpg" BORDER="0" height="57" width="238" alt="南京家装主材博览会春季"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table>                                          </td>
+										      
+                                    <td width="512" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/bg_14.gif">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="59" valign="middle" align="center" bgcolor="#CCCCCC"><a href="http://www.xici.net/" target="_blank"><IMG SRC="UploadFiles/201412161180197.jpg" BORDER="0" height="57" width="238" alt="西祠网友婚庆博览会"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table>                                          </td>
+										      
+                                    </tr>
+                                  
+                                  </table></td>
+                          </tr>
+                              </table>                    </td>
+                      </tr>
+                          </table>                    </td>
+                        <td width="16" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                      </tr>
+                  </table>                </td>
+                  </tr>
+              <tr>
+                <td height="16" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                    </tr>
+              <tr>
+                <td height="20" valign="top" class="tianqi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bianli_3.asp"><font color="#990000">酒店住宿</font></a> | <a href="bianli_4.asp" class="in">餐饮服务</a> | <a href="bianli_5.asp" class="in">景点介绍</a> | <a href="bianli_6.asp" class="in">医疗机构</a> | <a href="bianli_7.asp" class="in">附近购物</a></td>
+                    </tr>
+              <tr>
+                <td height="139" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td width="226" height="133" align="right" valign="middle"><img src="images/news/index_17.jpg" width="203" height="107"></td>
+                          <td width="8" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                          <td width="266" valign="middle" class="ybfont1">&nbsp;&nbsp;&nbsp;&nbsp;<a href="center.asp" class="index_center">金陵会议中心位于八座展馆的焦点位置，<br>是南京国际博览中心的重要组成部分，现由南京河西会议展览有限责任公司委托金陵酒店管理公司经营管理。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;金陵会议中心总面积80,000平方米，现一期会议中心4.6万平方米，拥有5000平方米的中华厅多功能厅、1960平方米....</a></td>
+                          <td width="12">&nbsp;</td>
+                        </tr>
+                  <tr>
+                    <td height="6"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                  </table></td>
+                    </tr>
+              </table></td>
+                <td width="216" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/index4/index_07.jpg">
+                  <!--DWLayoutTable-->
+                  <tr>
+                    <td height="44" colspan="3" valign="top"><a href="jingcai1.asp?BigClassName=2013"><img src="images/index_07_more.jpg" width="216" height="44" border="0"></a></td>
+                  </tr>
+                  <tr>
+                    <td width="10" height="363" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                    <td width="189" valign="top"><div id="scrollDiv">
+  <ul>
+
+    <li><a href="jingcai_Content.asp?id=77"><IMG height=90 alt="2013南京房地产春季商品交易会" src="UploadFiles/201421811283701.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=77" class="jingcai">2013南京房地产春季商品交易会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=72"><IMG height=90 alt="2013中国（南京）国际度假旅游及房车展览会" src="UploadFiles/2014218111612584.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=72" class="jingcai">2013中国（南京）国际度假旅游及房车展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=73"><IMG height=90 alt="2013南京社会公共安全防范产品技术展览会" src="UploadFiles/201421811208891.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=73" class="jingcai">2013南京社会公共安全防范产品技术展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=74"><IMG height=90 alt="2013第十三届中国（南京）国际客车及零部件展览会" src="UploadFiles/2014218112222395.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=74" class="jingcai">2013第十三届中国（南京）国际客车及零部件展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=94"><IMG height=90 alt="2013亚洲自行车展" src="UploadFiles/2014218164216536.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=94" class="jingcai">2013亚洲自行车展</a></li>
+
+    <li><a href="jingcai_Content.asp?id=76"><IMG height=90 alt="2013首届南京中国华夏家博会" src="UploadFiles/2014218112550295.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=76" class="jingcai">2013首届南京中国华夏家博会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=78"><IMG height=90 alt="2013创洽会及留交会" src="UploadFiles/201421811302321.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=78" class="jingcai">2013创洽会及留交会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=79"><IMG height=90 alt="2013第六届中国（南京）国际汽车博览会" src="UploadFiles/2014218113226840.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=79" class="jingcai">2013第六届中国（南京）国际汽车博览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=80"><IMG height=90 alt="2013中国国际船舶工业博览会" src="UploadFiles/201421811343285.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=80" class="jingcai">2013中国国际船舶工业博览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=81"><IMG height=90 alt="第十四届全国医院建设大会暨中国国际医院建设、装备及管理展览会" src="UploadFiles/2014218113551148.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=81" class="jingcai">第十四届全国医院建设大会暨中国国际医院建设、装备及管理展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=82"><IMG height=90 alt="2013第三届西祠亲子嘉年华" src="UploadFiles/201421811386340.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=82" class="jingcai">2013第三届西祠亲子嘉年华</a></li>
+
+    <li><a href="jingcai_Content.asp?id=84"><IMG height=90 alt="2013(第八届)亚洲户外用品展览会" src="UploadFiles/2014218114559632.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=84" class="jingcai">2013(第八届)亚洲户外用品展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=85"><IMG height=90 alt="2013第28届全国青少年科技大赛" src="UploadFiles/2014218114817578.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=85" class="jingcai">2013第28届全国青少年科技大赛</a></li>
+
+    <li><a href="jingcai_Content.asp?id=86"><IMG height=90 alt="2013中国华夏家博会" src="UploadFiles/2014218115024849.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=86" class="jingcai">2013中国华夏家博会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=87"><IMG height=90 alt="2013第十届西祠网友婚博会" src="UploadFiles/2014218115828581.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=87" class="jingcai">2013第十届西祠网友婚博会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=88"><IMG height=90 alt="2013第九届中国（南京）国际软件产品和信息服务博览会" src="UploadFiles/201421812049889.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=88" class="jingcai">2013第九届中国（南京）国际软件产品和信息服务博览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=89"><IMG height=90 alt="2013第十一届中国国际聚氨酯展览会（PU&nbsp;China）" src="UploadFiles/201421812220622.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=89" class="jingcai">2013第十一届中国国际聚氨酯展览会（PU&nbsp;China）</a></li>
+
+    <li><a href="jingcai_Content.asp?id=90"><IMG height=90 alt="2013南京台湾名品交易会" src="UploadFiles/201421812418184.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=90" class="jingcai">2013南京台湾名品交易会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=91"><IMG height=90 alt="第十五届江苏国际服装节" src="UploadFiles/201421816358789.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=91" class="jingcai">第十五届江苏国际服装节</a></li>
+
+    <li><a href="jingcai_Content.asp?id=92"><IMG height=90 alt="2013秋季南京房地产商品交易会" src="UploadFiles/2014218163744978.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=92" class="jingcai">2013秋季南京房地产商品交易会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=93"><IMG height=90 alt="2013（第12届）南京国际汽车展览会" src="UploadFiles/2014218164041604.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=93" class="jingcai">2013（第12届）南京国际汽车展览会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=83"><IMG height=90 alt="2013第八届跨国零售集团采购会" src="UploadFiles/2014218114346219.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=83" class="jingcai">2013第八届跨国零售集团采购会</a></li>
+
+    <li><a href="jingcai_Content.asp?id=75"><IMG height=90 alt="2013第七届中国(江苏)国际农业机械展览会" src="UploadFiles/2014218112359863.jpg" width=170 border=0></a><br><a href="jingcai_Content.asp?id=75" class="jingcai">2013第七届中国(江苏)国际农业机械展览会</a></li>
+
+  </ul></div></td>
+                    <td width="10" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height="16" colspan="3" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+                  </tr>
+                  
+                  
+                </table>
+                </td>
+              </tr>
+          
+        </table></td>
+        </tr>
+      <tr>
+        <td height="5"></td>
+        </tr>
+      
+      
+      
+      
+      
+    </table></td>
+  </tr>
+</table>
+
+
+
+
+<table width="1004" border="0" align="center" cellpadding="0" cellspacing="0" style="border-bottom:3px solid #FFFFFF">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="1004" height="72" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <!--DWLayoutTable-->
+                          <tr>
+                            <td width="502" height="72" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                              <!--DWLayoutTable-->
+                              
+                              
+                              
+                              
+                              
+                                
+                              
+                              
+                              
+                              
+                              <tr>
+                                <td width="502" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                  <!--DWLayoutTable-->
+                                  
+                                  <tr>
+
+                                    <td width="502" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="58" valign="middle" align="center" style="border:1px solid #C9C9C9; padding-top:5px; padding-bottom:5px"><a href="http://www.logimat-china.com/Default.aspx" target="_blank"><IMG SRC="UploadFiles/20146494222573.jpg" BORDER="0" height="58" width="482" alt="2014中国（南京）国际物料配送、搬运及物流信息化展览会"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table></td>
+										      
+                                    <td width="502" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="58" valign="middle" align="center" style="border:1px solid #C9C9C9; padding-top:5px; padding-bottom:5px"><a href="http://www.cmt-china.com.cn/" target="_blank"><IMG SRC="UploadFiles/2014911112840974.png" BORDER="0" height="58" width="482" alt="2014南京国际度假旅游及房车展览会"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table></td>
+										      
+                                  <tr>
+
+                                    <td width="502" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="58" valign="middle" align="center" style="border:1px solid #C9C9C9; padding-top:5px; padding-bottom:5px"><a href="http://www.nbf.net.cn" target="_blank"><IMG SRC="UploadFiles/2014519163152847.jpg" BORDER="0" height="58" width="482" alt="中国（南京）国际建筑装饰展览会"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table></td>
+										      
+                                    <td width="502" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                      <!--DWLayoutTable-->
+                                      <tr>
+                                        <td width="240" height="59" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                          <!--DWLayoutTable-->
+                                          <tr>
+                                            <td height="58" valign="middle" align="center" style="border:1px solid #C9C9C9; padding-top:5px; padding-bottom:5px"><a href="http://www.ambchina.com/" target="_blank"><IMG SRC="UploadFiles/201451914417560.jpg" BORDER="0" height="58" width="482" alt="2012中国（南京）国际金属加工展"></a></td>
+                                                        </tr>
+                                          </table></td>
+                                                  </tr>
+                                      </table></td>
+										      
+                                    </tr>
+                                  
+                                  </table></td>
+                          </tr>
+                              </table>                    </td>
+                      </tr>
+                          </table></td>
+  </tr>
+</table>
+
+
+
+
+<table width="1004" border="0" cellpadding="0" cellspacing="0" align="center" background="images/index4/index_12.jpg">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="8" rowspan="2" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+    <td width="988" height="70" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="25" height="70" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+        <td width="938" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <!--DWLayoutTable-->
+          <tr>
+            <td width="938" height="18">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="52" valign="top"><TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                                <TBODY>
+                                <TR vAlign="top" align="center">
+                                <TD>
+                                <TABLE  style="WIDTH: 100%; HEIGHT: 100%" cellSpacing="9" cellPadding="0" border="0">
+
+                                <tr>
+                                   <td width="938" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        <!--DWLayoutTable-->
+
+                                        <tr>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.agedcare.com.cn" target="_blank" class="in"><IMG border=0 alt=第二届（2013）南京老年产业博览会 src="UploadFiles/2013614195022121.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.nicge.com" target="_blank" class="in"><IMG border=0 alt=消博会 src="UploadFiles/2014324102955333.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.jinlinghotels.com/CN/Memberhotels/Expohotel/Portal.asp" target="_blank" class="in"><IMG border=0 alt=南京国际博览中心酒店 src="UploadFiles/201361419551787.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.neaechina.com" target="_blank" class="in"><IMG border=0 alt=新能源车展 src="UploadFiles/2014810143856962.gif" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                        <tr>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.xici.net" target="_blank" class="in"><IMG border=0 alt=西祠胡同 src="UploadFiles/2013614195650433.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.ccpit.org" target="_blank" class="in"><IMG border=0 alt=中国贸易促进委员会 src="UploadFiles/2013614195726285.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.nanjing.gov.cn/" target="_blank" class="in"><IMG border=0 alt=中国南京 src="UploadFiles/2013614195755832.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                          <td width="938" height="53" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <!--DWLayoutTable-->
+                                            <tr>
+                                              <td width="185" height="23" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                <!--DWLayoutTable-->
+												<tr>
+                                                  <TD align="center" valign="middle" width="185" height="37"><a href="http://www.nju.gov.cn/" target="_blank" class="in"><IMG border=0 alt=南京旅游网 src="UploadFiles/201361420116402.jpg" width=202 height=47></a></td>
+                                                </tr>
+                                                </table></td>
+                                            </tr>
+                                          </table></td>
+
+                                     </tr>
+
+                                        </table></td>
+                                  </tr></TABLE></TD>
+                                <TD 
+                              vAlign=top></TD></TR></TBODY></TABLE>
+            </td>
+          </tr>
+        </table>
+        </td>
+        <td width="25" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+      </tr>
+    </table></td>
+    <td width="8" rowspan="2" valign="top"><!--DWLayoutEmptyCell-->&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="9"></td>
+  </tr>
+</table>
+<table width="1004" border="0" cellpadding="0" cellspacing="0" align="center">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="1004" height="79" valign="middle" align="center" class="ybfont jieshao">版权所有：南京河西会议展览有限责任公司    地址：南京燕山路199号<br>
+邮编：210019    联系电话：025-52001000    传真：025-86753344<br>
+网站备案号：苏ICP备07006472号</td>
+  </tr>
+</table>
+
+<DIV id=img1 style="Z-INDEX: 100; LEFT: 2px; WIDTH: 59px; POSITION: absolute; TOP: 43px; HEIGHT: 61px;
+ visibility: visible;"><a href=Ggl_content.asp?id=2><img src=images/ggl.jpg width=80 height=80 border=0 onload=return imgzoom(this,600); style=cursor:pointer;/></a></DIV>
+
+</body>
+</html>
+<script type="text/javascript">
+var xPos = 300;
+var yPos = 200; 
+var step = 1;
+var delay = 30; 
+var height = 0;
+var Hoffset = 0;
+var Woffset = 0;
+var yon = 0;
+var xon = 0;
+var pause = true;
+var interval;
+img1.style.top = yPos;
+function changePos() 
+{
+	width = document.body.clientWidth;
+	height = document.body.clientHeight;
+	Hoffset = img1.offsetHeight;
+	Woffset = img1.offsetWidth;
+	img1.style.left = xPos + document.body.scrollLeft;
+	img1.style.top = yPos + document.body.scrollTop;
+	if (yon) 
+		{yPos = yPos + step;}
+	else 
+		{yPos = yPos - step;}
+	if (yPos < 0) 
+		{yon = 1;yPos = 0;}
+	if (yPos >= (height - Hoffset)) 
+		{yon = 0;yPos = (height - Hoffset);}
+	if (xon) 
+		{xPos = xPos + step;}
+	else 
+		{xPos = xPos - step;}
+	if (xPos < 0) 
+		{xon = 1;xPos = 0;}
+	if (xPos >= (width - Woffset)) 
+		{xon = 0;xPos = (width - Woffset);   }
+	}
+	
+	function start()
+	 {
+	 	img1.visibility = "visible";
+		interval = setInterval('changePos()', delay);
+	}
+	function pause_resume() 
+	{
+		if(pause) 
+		{
+			clearInterval(interval);
+			pause = false;}
+		else 
+		{
+			interval = setInterval('changePos()',delay);
+			pause = true; 
+			}
+		}
+	start();
+</script>
+
+<!--
+<DIV style="Z-INDEX: 9999; POSITION: absolute" id=ad><IMG border=0 
+src="images/0123-1.jpg"><BR>
+<DIV align=right><A class=q1 onclick=stopAd() 
+href="javascript:void(null);">关闭</A> </DIV></DIV><BR><BR>
+<DIV style="Z-INDEX: 9999; POSITION: absolute" id=ad1><IMG border=0 
+src="images/0123-2.jpg"><BR>
+<DIV align=left><A class=q1 onclick=stopAdtwo() 
+href="javascript:void(null);">关闭</A> </DIV></DIV>
+-->
+<SCRIPT type=text/javascript>
+var xPos = 300;
+var yPos = 200; 
+var step = 1;
+var delay = 30; 
+var height = 0;
+var Hoffset = 0;
+var Woffset = 0;
+var yon = 0;
+var xon = 0;
+var pause = true;
+var interval;
+img1.style.top = yPos;
+function changePos() 
+{
+	width = document.body.clientWidth;
+	height = document.body.clientHeight;
+	Hoffset = img1.offsetHeight;
+	Woffset = img1.offsetWidth;
+	img1.style.left = xPos + document.body.scrollLeft;
+	img1.style.top = yPos + document.body.scrollTop;
+	if (yon) 
+		{yPos = yPos + step;}
+	else 
+		{yPos = yPos - step;}
+	if (yPos < 0) 
+		{yon = 1;yPos = 0;}
+	if (yPos >= (height - Hoffset)) 
+		{yon = 0;yPos = (height - Hoffset);}
+	if (xon) 
+		{xPos = xPos + step;}
+	else 
+		{xPos = xPos - step;}
+	if (xPos < 0) 
+		{xon = 1;xPos = 0;}
+	if (xPos >= (width - Woffset)) 
+		{xon = 0;xPos = (width - Woffset);   }
+	}
+	
+	function start()
+	 {
+	 	img1.visibility = "visible";
+		interval = setInterval('changePos()', delay);
+	}
+	function pause_resume() 
+	{
+		if(pause) 
+		{
+			clearInterval(interval);
+			pause = false;}
+		else 
+		{
+			interval = setInterval('changePos()',delay);
+			pause = true; 
+			}
+		}
+	start();
+</SCRIPT>
+
+<!--
+<DIV style="Z-INDEX: 9999; POSITION: absolute" id=ad><IMG border=0 
+src="南京国际博览中心_files/0123-1.jpg"><BR>
+<DIV align=right><A class=q1 onclick=stopAd() 
+href="javascript:void(null);">关闭</A> </DIV></DIV><BR><BR>
+<DIV style="Z-INDEX: 9999; POSITION: absolute" id=ad1><IMG border=0 
+src="南京国际博览中心_files/0123-2.jpg"><BR>
+<DIV align=left><A class=q1 onclick=stopAdtwo() 
+href="javascript:void(null);">关闭</A> </DIV></DIV>
+-->
+<SCRIPT>
+  var xone = 50,yone = 60
+  var xone1 = 90,yone1= 100 
+  var xin = true, yin = true
+  var step = 2 
+  var step1 = 4
+  var delay = 40
+  var obj=document.getElementById("ad");
+  function floatAD() {
+     var Lone=Tone=0
+     var Rone= document.body.clientWidth-obj.offsetWidth
+     var Bone = document.body.clientHeight-obj.offsetHeight
+     obj.style.left = xone1 + document.body.scrollLeft
+     obj.style.top = yone1 + document.body.scrollTop
+     xone1 = xone1 + step1*(xin?1:-1)  
+     if (xone1 < Lone) { xin = true; xone1 = Lone} 
+     if (xone1 > Rone){ xin = false; xone1 = Rone} 
+     yone1 = yone1 + step1*(yin?1:-1) 
+     if (yone1 < Tone) { yin = true; yone1 = Tone }
+     if (yone1 > Bone) { yin = false; yone1 = Bone } 
+  }
+    function stopAd(){
+  	obj.style.display = 'none';
+	clearInterval(itl);
+  }
+  var itl= setInterval("floatAD()", delay) 
+obj.onmouseover=function(){clearInterval(itl)} 
+obj.onmouseout=function(){itl=setInterval("floatAD()", delay)}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+var obj1 = document.getElementById("ad1");
+function floatADtwo() {
+
+     var Ltwo=Ttwo=0
+     var Rtwo= document.body.clientWidth-obj.offsetWidth
+     var Btwo = document.body.clientHeight-obj.offsetHeight
+     obj1.style.left = xone + document.body.scrollLeft
+     obj1.style.top = yone + document.body.scrollTop
+     xone = xone + step*(xin?1:-1)  
+     if (xone < Ltwo) { xin = true; xone = Ltwo} 
+     if (xone > Rtwo){ xin = false; xone = Rtwo} 
+     yone = yone + step*(yin?1:-1) 
+     if (yone < Ttwo) { yin = true; yone = Ttwo }
+     if (yone > Btwo) { yin = false; yone = Btwo } 
+  }
+    function stopAdtwo(){
+  	obj1.style.display = 'none';
+	clearInterval(itl1);
+  }
+  var itl1= setInterval("floatADtwo()", delay) 
+obj1.onmouseover=function(){clearInterval(itl1)} 
+obj1.onmouseout=function(){itl1=setInterval("floatADtwo()", delay)}
+
+  </SCRIPT>
+
+
